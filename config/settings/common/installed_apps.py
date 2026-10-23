@@ -29,6 +29,7 @@ LOCAL_APPS = (
     "apps.core",
     "apps.auth",
     "apps.users",
+    "apps.flashcard",
 )
 
 INSTALLED_APPS += DRF_PACKAGES + THIRD_PARTY + LOCAL_APPS
