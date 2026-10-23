@@ -31,9 +31,6 @@ class AppStatsMixin:
         """Load changelog data from files."""
         context = super().get_context_data(**kwargs)
         storage_ui_url = getattr(settings, "STORAGE_UI", None)
-        argo_cd_url, _, argo_cd_app = settings.ARGO_CD_APP_URL.partition(
-            "applications/",
-        )
         context.update(
             show_debug_tools=libs_permissions.can_access_debug_tools(
                 self.request.user,
@@ -45,8 +42,6 @@ class AppStatsMixin:
             django_version=django.get_version(),
             app_url=settings.FRONTEND_URL,
             app_label=settings.APP_LABEL,
-            argo_cd_url=argo_cd_url,
-            argo_cd_app=argo_cd_app,
             email_ui_url=settings.EMAIL_UI_URL,
             storage_ui_url=storage_ui_url,
         )

@@ -18,12 +18,14 @@ class UserAdmin(BaseAdmin, DjangoUserAdmin):
         "email",
         "first_name",
         "last_name",
+        "role",
         "is_active",
         "is_staff",
         "is_superuser",
         "last_login",
     )
     list_display_links = ("email",)
+    list_filter = ("role", *DjangoUserAdmin.list_filter)
     search_fields = (
         "first_name",
         "last_name",
@@ -38,6 +40,7 @@ class UserAdmin(BaseAdmin, DjangoUserAdmin):
                     "email",
                     "password1",
                     "password2",
+                    "role",
                 ),
             },
         ),
@@ -58,7 +61,6 @@ class UserAdmin(BaseAdmin, DjangoUserAdmin):
                 "fields": (
                     "first_name",
                     "last_name",
-                    "avatar",
                     "last_login",
                 ),
             },
@@ -67,6 +69,7 @@ class UserAdmin(BaseAdmin, DjangoUserAdmin):
             _("Permissions"),
             {
                 "fields": (
+                    "role",
                     "is_active",
                     "is_staff",
                     "is_superuser",

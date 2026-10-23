@@ -14,7 +14,6 @@ class UserFactory(factory.django.DjangoModelFactory[models.User]):
 
     first_name = factory.Faker("first_name")
     last_name = factory.Faker("last_name")
-    avatar = factory.django.ImageField(color="magenta")
     password = factory.django.Password(password=DEFAULT_PASSWORD)
 
     class Meta:
@@ -32,5 +31,6 @@ class UserFactory(factory.django.DjangoModelFactory[models.User]):
 class AdminUserFactory(UserFactory):
     """Factory to generate test User model with admin privileges."""
 
+    role = models.User.Role.ADMIN
     is_superuser = True
     is_staff = True
