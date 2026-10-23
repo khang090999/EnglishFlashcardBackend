@@ -1,12 +1,11 @@
-from django.conf import settings
 from django.contrib.auth.models import (
     AbstractBaseUser,
     PermissionsMixin,
     UserManager as DjangoUserManager,
 )
-from django.core.files.storage import storages
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+import enum
 
 import citext
 
@@ -86,13 +85,17 @@ class User(
         ),
     )
 
-    avatar = models.ImageField(
-        verbose_name=_("Avatar"),
-        storage=storages["public"],
-        blank=True,
-        null=True,
-        upload_to=settings.DEFAULT_MEDIA_PATH,
-        max_length=512,
+    class Role(models.TextChoices):
+        """Represent the access role assigned to a user."""
+
+        STUDENT = enum.auto(), _("Student")
+        TEACHER = enum.auto(), _("Teacher")
+        ADMIN = enum.auto(), _("Admin")
+    role = models.CharField(
+        verbose_name=_("Role"),
+        max_length=max(map(len, Role.values)),
+        choices=Role.choices,
+        default=Role.STUDENT,
     )
 
     EMAIL_FIELD = "email"

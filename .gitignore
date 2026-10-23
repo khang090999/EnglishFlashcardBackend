@@ -14,6 +14,9 @@
 # Local History for Visual Studio Code
 .history/
 
+# Git worktrees
+.worktrees/
+
 ### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -79,8 +82,8 @@ db.sqlite3
 db.sqlite3-journal
 # Media folder
 media/
-# Static folder
-static/
+# Collected static files
+/static/
 
 # PyBuilder
 .pybuilder/
@@ -124,6 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+!**/.env.gomplate
 
 # Spyder project settings
 .spyderproject
@@ -161,6 +165,7 @@ requirements.txt
 # DB Dumps
 *db_dump*.sql
 *db-dump*.sql
+*db-dump*.dump
 
 # Local invoke config
 .invoke
@@ -170,3 +175,25 @@ requirements.txt
 
 # File in MacOS that stores custom attributes of its containing folder
 .DS_Store
+
+# AI related files
+.cursor/
+REFACTORING_PLAN.md
+AGENTS.md
+.zed/*
+.claude/*
+.playwright-mcp/
+
+# Local dev-only chat test page (wired into config/urls/debug.py locally)
+apps/chat/dev_views.py
+
+# Local Needs
+reports/*
+celerybeat-schedule-*
+docs/superpowers/*
+
+# Ignore AI related folders
+.ai/
+.agents/
+.local/
+.env.jira

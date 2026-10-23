@@ -13,13 +13,14 @@ class UserSerializer(ModelBaseSerializer):
             "first_name",
             "last_name",
             "email",
-            "avatar",
+            "role",
             "last_login",
             "created",
             "modified",
         )
         read_only_fields = (
             "email",
+            "role",
             "last_login",
             "created",
             "modified",

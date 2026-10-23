@@ -39,3 +39,5 @@ def test_api(
     if response.status_code > 300:
         return
     assert parametrize_user.pk == response.data["id"]
+    assert response.data["role"] == "student"
+    assert "avatar" not in response.data

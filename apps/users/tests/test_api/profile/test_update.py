@@ -36,10 +36,24 @@ def test_api(
     data = serializers.UserSerializer(
         instance=parametrize_user or models.User(),
     ).data
-    # Update it when api will be ready for s3 integration
-    data["avatar"] = None
     response: Response = api_client.put(
         path=reverse_lazy("api:v1:profile"),
         data=data,
     )
     assert response.status_code == status_code, response.data
+
+
+def test_cannot_change_role(
+    user_api_client: test.APIClient,
+    user: models.User,
+):
+    """Allow profile edits without permitting self-promotion."""
+    response = user_api_client.put(
+        reverse_lazy("api:v1:profile"),
+        data={"first_name": "Updated", "role": "admin"},
+    )
+    assert response.status_code == status.HTTP_200_OK, response.data
+    user.refresh_from_db()
+    assert user.first_name == "Updated"
+    assert user.role == "student"
+    assert response.data["role"] == "student"
