@@ -51,8 +51,6 @@ def pytest_configure() -> None:
     # To separate test files from prod files
     settings.AWS_LOCATION = "test-files"
 
-    # To disable sending errors to Sentry while testing
-    settings.SENTRY_DSN = None
 
 
 @pytest.fixture(scope="session", autouse=True)

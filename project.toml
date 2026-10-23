@@ -13,7 +13,6 @@ exclude = [
     ".github",
     ".gitlint",
     ".gitignore",
-    ".pre-commit-config.yaml",
     ".env.local",
     "compose.yaml",
     ".vscode",

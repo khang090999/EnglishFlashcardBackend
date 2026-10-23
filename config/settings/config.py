@@ -1,7 +1,6 @@
 import sys
 
 import decouple
-import sentry_sdk
 from dj_database_url import parse as db_url
 
 from .common import *
@@ -61,11 +60,3 @@ if "celery" in sys.argv[0]:
 if DEBUG:
     # Dev tools settings
     from .common.dev_tools import *
-
-
-# Start up sentry
-sentry_sdk.init(
-    dsn=decouple.config("sentry_dsn"),
-    environment=ENVIRONMENT,
-    **SENTRY_CONFIG,
-)

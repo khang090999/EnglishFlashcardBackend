@@ -10,7 +10,6 @@ from .internationalization import *
 from .logging import *
 from .middleware import *
 from .paths import *
-from .sentry import *
 from .shell import *
 from .storage import *
 from .templates import *

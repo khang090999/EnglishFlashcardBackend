@@ -89,6 +89,12 @@ dependencies = [
   # https://github.com/lepture/mistune
   # Performance: https://github.com/lepture/mistune?tab=readme-ov-file#benchmarks
   "mistune==3.3.4",
+  # PyJWT is a Python library which allows you to encode and decode JSON Web Tokens (JWT).
+  # https://pyjwt.readthedocs.io/en/stable/
+  "pyjwt[crypto]==2.15.1",
+  # HTTPX is a fully featured HTTP client for Python 3, which provides sync and async APIs, and support for both HTTP/1.1 and HTTP/2.
+  # https://www.python-httpx.org/
+  "httpx==0.28.1",
 
   # Devops packages
   # The uWSGI server as a Python module
@@ -148,9 +154,6 @@ local = [
   # but this package provides CORS for local development with a local frontend.
   # https://pypi.org/project/django-cors-headers/
   "django-cors-headers==4.9.0",
-  # A fast Git hook manager written in Rust, designed as a drop-in alternative to pre-commit, reimagined.
-  # https://prek.j178.dev/
-  "prek==0.5.4",
 ]
 
 [tool.pytest.ini_options]
