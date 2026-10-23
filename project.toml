@@ -1,0 +1,26 @@
+[project]
+schema-version = "0.2"
+id = "io.buildpacks.english-flashcards-backend"
+name = "English Flashcards"
+version = "0.0.0"
+
+[build]
+exclude = [
+    ".venv",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".git",
+    ".github",
+    ".gitlint",
+    ".gitignore",
+    ".pre-commit-config.yaml",
+    ".env.local",
+    "compose.yaml",
+    ".vscode",
+    ".cruft.json",
+    "/tasks.py",
+    "*.sql",
+    "README.md",
+    "docs/*",
+    "!docs/CHANGELOG.md",
+]
